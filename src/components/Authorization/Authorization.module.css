@@ -15,11 +15,6 @@
   color: var(--laptop-color);
 }
 
-.loginCont img {
-  stroke: var(--laptop-color);
-  color: var(--laptop-color);
-}
-
 .loginBtn {
   background-color: inherit;
   color: currentColor;

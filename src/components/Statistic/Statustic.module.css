@@ -1,0 +1,28 @@
+.statWrapper {
+  border: 1.5px dashed var(--laptop-color);
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  width: 1312px;
+  margin: 0 auto;
+}
+
+.statInfo {
+  display: flex;
+  gap: 16px;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 114%;
+  color: #121417;
+}
+
+.statText {
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+  width: 90px;
+}
