@@ -1,0 +1,9 @@
+.nav {
+  display: flex;
+  gap: 28px;
+  line-height: 125%;
+}
+
+.navLink:hover {
+  color: var(--laptop-color);
+}
