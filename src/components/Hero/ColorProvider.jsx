@@ -6,7 +6,7 @@ const colors = ["#FBE9BA", "#CBDED3", "#BFD6EA", "#F2C0BD", "#F4C8BA"];
 
 const laptopColors = {
   "#FBE9BA": "#F4C550",
-  "#CBDED3": "#F4C550",
+  "#CBDED3": "#9FBAAE",
   "#BFD6EA": "#9FB7CE",
   "#F2C0BD": "#E0A39A",
   "#F4C8BA": "#F0AA8D",
@@ -21,7 +21,6 @@ const ColorProvider = ({ children }) => {
     document.documentElement.style.setProperty("--primary", randomColor);
 
     const laptopColor = laptopColors[randomColor];
-    console.log("Laptop color:", laptopColor);
     document.documentElement.style.setProperty("--laptop-color", laptopColor);
   }, []);
 

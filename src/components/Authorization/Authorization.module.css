@@ -15,6 +15,10 @@
   color: var(--laptop-color);
 }
 
+.loginIcon {
+  color: var(--laptop-color) !important;
+}
+
 .loginBtn {
   background-color: inherit;
   color: currentColor;

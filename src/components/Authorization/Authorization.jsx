@@ -1,12 +1,17 @@
 import css from "./Authorization.module.css";
 
+import { ReactSVG } from "react-svg";
+
+import loginIcon from "../../assets/icons/login.svg";
+
 const Authorization = () => {
   const handleLoginClick = () => {};
   const handleRegisterClick = () => {};
   return (
     <div className={css.authWrapper}>
       <div className={css.loginCont}>
-        <svg
+        <ReactSVG className={css.loginIcon} src={loginIcon} />
+        {/* <svg
           width="20"
           height="20"
           fill="none"
@@ -19,7 +24,7 @@ const Authorization = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        </svg>
+        </svg> */}
         <button
           type="button"
           className={css.loginBtn}
