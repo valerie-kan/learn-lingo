@@ -1,24 +1,24 @@
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import css from "./RegistrationForm.module.css";
 
 import { SignUpSchema } from "../../utils/validationSchemas";
-import Modal from "../Modal/Modal";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import { registerUser } from "../../utils/authOperations";
 
-const RegistrationForm = ({ isModalOpen, closeModal }) => {
+import Modal from "../Modal/Modal";
+
+const RegistrationForm = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(SignUpSchema) });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
   return (
     <Modal
-      schema={SignUpSchema}
-      onSubmit={handleSubmit(onSubmit)}
+      handleSubmit={handleSubmit}
       title="Registration"
       text="Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information"
       buttonName="Sign Up"
@@ -26,6 +26,9 @@ const RegistrationForm = ({ isModalOpen, closeModal }) => {
       closeModal={closeModal}
       register={register}
       errors={errors}
+      reset={reset}
+      authUser={registerUser}
+      setIsLoggedIn={setIsLoggedIn}
     >
       <div>
         <input

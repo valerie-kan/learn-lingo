@@ -14,7 +14,7 @@ export const LoginSchema = Yup.object({
 
 export const SignUpSchema = Yup.object({
   name: Yup.string()
-    .min(6, "Name must be at least 6 letters")
+    .min(3, "Name must be at least 3 letters")
     .max(20, "Name must be at most 20 letters")
     .required("Name is required"),
   email: Yup.string()

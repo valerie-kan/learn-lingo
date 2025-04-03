@@ -8,7 +8,7 @@ import closeIcon from "../../assets/icons/close.svg";
 import { useEffect, useState } from "react";
 
 const Modal = ({
-  onSubmit,
+  handleSubmit,
   title,
   text,
   children,
@@ -17,6 +17,9 @@ const Modal = ({
   closeModal,
   register,
   errors,
+  reset,
+  authUser,
+  setIsLoggedIn,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -33,8 +36,8 @@ const Modal = ({
   }, [isModalOpen]);
 
   useEffect(() => {
-    const onKeyDown = (evt) => {
-      if (evt.code === "Escape") {
+    const onKeyDown = (e) => {
+      if (e.code === "Escape") {
         closeModal();
       }
     };
@@ -46,8 +49,8 @@ const Modal = ({
     };
   }, [closeModal]);
 
-  const onBackdropClick = (evt) => {
-    if (evt.target === evt.currentTarget) {
+  const onBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
       closeModal();
     }
   };
@@ -56,9 +59,20 @@ const Modal = ({
     setShowPassword((prev) => !prev);
   };
 
+  const onSubmit = (data) => {
+    try {
+      authUser(data);
+      reset();
+      closeModal();
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className={css.overlay} onClick={onBackdropClick}>
-      <form className={css.formWrapper} onSubmit={onSubmit}>
+      <form className={css.formWrapper} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={css.formTitle}>{title}</h2>
         <ReactSVG
           className={css.closeIcon}

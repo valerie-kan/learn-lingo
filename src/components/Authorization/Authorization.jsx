@@ -10,13 +10,13 @@ import RegistrationForm from "../RegistrationForm/RegistrationForm";
 const Authorization = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
-  const handleLoginClick = (e) => {
-    e.preventDefault();
+  const onLoginClick = () => {
     setLoginModalOpen(true);
   };
-  const handleRegisterClick = (e) => {
-    e.preventDefault();
+  const onRegisterClick = () => {
+    // e.preventDefault();
     setRegisterModalOpen(true);
   };
 
@@ -25,7 +25,7 @@ const Authorization = () => {
 
   return (
     <div className={css.authWrapper}>
-      <div className={css.loginCont} onClick={handleLoginClick}>
+      <div className={css.loginCont} onClick={onLoginClick}>
         <ReactSVG className={css.loginIcon} src={loginIcon} />
         <button className={css.loginBtn} type="button">
           Login
@@ -34,17 +34,24 @@ const Authorization = () => {
       <button
         className={css.registerBtn}
         type="button"
-        onClick={handleRegisterClick}
+        onClick={onRegisterClick}
       >
         Registration
       </button>
       {loginModalOpen && (
-        <LoginForm isModalOpen={loginModalOpen} closeModal={closeLoginModal} />
+        <LoginForm
+          isModalOpen={loginModalOpen}
+          closeModal={closeLoginModal}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
       )}
       {registerModalOpen && (
         <RegistrationForm
           isModalOpen={registerModalOpen}
           closeModal={closeRegisterModal}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
         />
       )}
     </div>
