@@ -1,4 +1,4 @@
-/* .overlay {
+.overlay {
   position: fixed;
   inset: 0;
   z-index: 9;
@@ -30,13 +30,20 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
+  transition: color 0.25s;
 }
 
-.inputsWrapper {
+.closeIcon:hover {
+  color: #8a8a89;
+}
+
+.authWrapper {
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin-block: 40px;
+  width: 100%;
 }
 
 .input {
@@ -44,6 +51,7 @@
   border-radius: 12px;
   padding: 16px 18px;
   outline: none;
+  width: 400px;
 }
 
 .input::placeholder {
@@ -51,10 +59,19 @@
   color: currentColor;
 }
 
+.pwdWrapper {
+  position: relative;
+}
+
 .iconEye {
   position: absolute;
-  bottom: 165px;
-  right: 82px;
+  top: 15px;
+  right: 17px;
+}
+
+.errMessage {
+  color: #ff0000;
+  font-size: 12px;
 }
 
 .submitBtn {
@@ -65,4 +82,4 @@
 
 .submitBtn:hover {
   background-color: var(--primary);
-} */
+}

@@ -1,0 +1,17 @@
+.input {
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  outline: none;
+  width: 400px;
+}
+
+.input::placeholder {
+  line-height: 137%;
+  color: currentColor;
+}
+
+.errMessage {
+  color: #ff0000;
+  font-size: 12px;
+}

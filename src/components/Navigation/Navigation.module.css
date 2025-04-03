@@ -4,6 +4,10 @@
   line-height: 125%;
 }
 
+.navLink {
+  transition: color 0.25s;
+}
+
 .navLink:hover {
   color: var(--laptop-color);
 }

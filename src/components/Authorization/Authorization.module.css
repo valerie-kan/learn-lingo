@@ -25,6 +25,10 @@
   padding: 0;
 }
 
-.loginBtn:hover {
-  background-color: inherit;
+.registerBtn {
+  color: #ffffff;
+}
+
+.registerBtn:hover {
+  background-color: #8a8a89;
 }

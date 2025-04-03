@@ -29,13 +29,9 @@ button {
   font-weight: 700;
   font-family: inherit;
   background-color: #121417;
-  color: #ffffff;
+  color: inherit;
   cursor: pointer;
   transition: background-color 0.25s;
-}
-
-button:hover {
-  background-color: #8a8a89;
 }
 
 img {

@@ -13,7 +13,10 @@ export const LoginSchema = Yup.object({
 });
 
 export const SignUpSchema = Yup.object({
-  name: Yup.string().max(20, "Name must be at most 20 symbols"),
+  name: Yup.string()
+    .min(6, "Name must be at least 6 letters")
+    .max(20, "Name must be at most 20 letters")
+    .required("Name is required"),
   email: Yup.string()
     .matches(emailRegexp, "Invalid email address")
     .required("Email is required"),

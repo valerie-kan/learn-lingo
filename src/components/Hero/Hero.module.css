@@ -36,11 +36,9 @@
 
 .startBtn {
   background-color: var(--laptop-color);
-  color: currentColor;
   padding: 16px;
   width: 267px;
   border-radius: 12px;
-  transition: background 0.3s;
 }
 
 .startBtn:hover {
