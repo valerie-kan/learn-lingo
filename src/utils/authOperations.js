@@ -18,7 +18,6 @@ export const registerUser = async ({ name, email, password }) => {
       email,
       password
     );
-    console.log("User registered:", userInfo.user);
 
     await updateProfile(userInfo.user, {
       displayName: name,
@@ -30,20 +29,19 @@ export const registerUser = async ({ name, email, password }) => {
 
 export const loginUser = async ({ email, password }) => {
   try {
-    const userInfo = await signInWithEmailAndPassword(auth, email, password);
-    console.log("User logged in:", userInfo.user);
+    await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.error("Error logging in user:", error.message);
   }
 };
 
-export const getUser = async () => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log("User is signed in:", user);
-    } else {
-      console.log("No user is signed in");
-    }
+export const getUser = () => {
+  return new Promise((resolve) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        resolve(user.displayName);
+      }
+    });
   });
 };
 

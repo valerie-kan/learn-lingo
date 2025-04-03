@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 
 import "./App.css";
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
         <ColorProvider>
+          <Toaster />
           <Routes>
             <Route path="/" element={<Home />} />
             {/* <Route path="/teachers" element={<Teachers />} /> */}

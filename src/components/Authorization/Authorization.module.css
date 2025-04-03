@@ -3,10 +3,14 @@
   gap: 16px;
 }
 
-.loginCont {
+.loginCont,
+.profileCont {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+.loginCont {
   cursor: pointer;
   transition: color 0.25s;
 }
@@ -15,7 +19,8 @@
   color: var(--laptop-color);
 }
 
-.loginIcon {
+.loginIcon,
+.profileIcon {
   color: var(--laptop-color) !important;
 }
 
@@ -25,10 +30,15 @@
   padding: 0;
 }
 
-.registerBtn {
+.userName {
+}
+
+.registerBtn,
+.logoutBtn {
   color: #ffffff;
 }
 
-.registerBtn:hover {
+.registerBtn:hover,
+.logoutBtn:hover {
   background-color: #8a8a89;
 }

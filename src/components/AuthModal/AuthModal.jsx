@@ -1,13 +1,16 @@
+import { useEffect, useState } from "react";
 import { ReactSVG } from "react-svg";
 
-import css from "./Modal.module.css";
+import css from "./AuthModal.module.css";
 
 import eye from "../../assets/icons/eye.svg";
 import eyeOff from "../../assets/icons/eye-off.svg";
 import closeIcon from "../../assets/icons/close.svg";
-import { useEffect, useState } from "react";
 
-const Modal = ({
+import { ErrorToast } from "../../utils/errorToast";
+import { SuccessToast } from "../../utils/successToast";
+
+const AuthModal = ({
   handleSubmit,
   title,
   text,
@@ -65,8 +68,11 @@ const Modal = ({
       reset();
       closeModal();
       setIsLoggedIn(true);
+      SuccessToast("You are successfully in!");
     } catch (error) {
-      console.log(error.message);
+      if (authUser === "loginUser") {
+        ErrorToast(error.message || "Email or password is wrong!");
+      } else ErrorToast(error.message || "Email is already registered!");
     }
   };
 
@@ -118,4 +124,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default AuthModal;

@@ -6,7 +6,7 @@ import css from "./RegistrationForm.module.css";
 import { SignUpSchema } from "../../utils/validationSchemas";
 import { registerUser } from "../../utils/authOperations";
 
-import Modal from "../Modal/Modal";
+import AuthModal from "../AuthModal/AuthModal";
 
 const RegistrationForm = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
   const {
@@ -17,7 +17,7 @@ const RegistrationForm = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
   } = useForm({ resolver: yupResolver(SignUpSchema) });
 
   return (
-    <Modal
+    <AuthModal
       handleSubmit={handleSubmit}
       title="Registration"
       text="Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information"
@@ -39,7 +39,7 @@ const RegistrationForm = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
         />
         {errors.name && <p className={css.errMessage}>{errors.name.message}</p>}
       </div>
-    </Modal>
+    </AuthModal>
   );
 };
 

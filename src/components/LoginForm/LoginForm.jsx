@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { LoginSchema } from "../../utils/validationSchemas";
-import Modal from "../Modal/Modal";
+import AuthModal from "../AuthModal/AuthModal";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginUser } from "../../utils/authOperations";
 
@@ -13,7 +13,7 @@ const LoginForm = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
   } = useForm({ resolver: yupResolver(LoginSchema) });
 
   return (
-    <Modal
+    <AuthModal
       handleSubmit={handleSubmit}
       title="Log In"
       text="Welcome back! Please enter your credentials to access your account and continue your search for a teacher."
