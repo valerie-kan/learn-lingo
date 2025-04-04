@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ReactSVG } from "react-svg";
+import { useDispatch, useSelector } from "react-redux";
 
 import css from "./Authorization.module.css";
 
@@ -10,7 +11,8 @@ import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import Logout from "../Logout/Logout";
 
-import { getUser } from "../../utils/authOperations";
+import { selectIsLoggedIn, selectUserName } from "../../redux/auth/selectors";
+import { getUser } from "../../redux/auth/operations";
 import { ErrorToast } from "../../utils/errorToast";
 
 const Authorization = () => {
@@ -18,25 +20,17 @@ const Authorization = () => {
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState(null);
+  const userName = useSelector(selectUserName);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getCurrentUser = async () => {
-      try {
-        const name = await getUser();
-        setUserName(name);
-        setIsLoggedIn(true);
-      } catch (error) {
-        setIsLoggedIn(false);
-        ErrorToast(
-          error.message || "Oops... Something went wrong! Try again later!"
-        );
-      }
-    };
-
-    getCurrentUser();
-  }, []);
+    dispatch(getUser()).unwrap();
+    // .catch((error) => {
+    //   ErrorToast(error || "User is not found!");
+    // });
+  }, [dispatch]);
 
   const toggleModal = (setModalOpen, value) => setModalOpen(value);
 
@@ -82,21 +76,18 @@ const Authorization = () => {
         <LoginForm
           isModalOpen={loginModalOpen}
           closeModal={() => toggleModal(setLoginModalOpen, false)}
-          setIsLoggedIn={setIsLoggedIn}
         />
       )}
       {registerModalOpen && (
         <RegistrationForm
           isModalOpen={registerModalOpen}
           closeModal={() => toggleModal(setRegisterModalOpen, false)}
-          setIsLoggedIn={setIsLoggedIn}
         />
       )}
       {logoutModalOpen && (
         <Logout
           isModalOpen={logoutModalOpen}
           closeModal={() => toggleModal(setLogoutModalOpen, false)}
-          setIsLoggedIn={setIsLoggedIn}
         />
       )}
     </>

@@ -1,16 +1,19 @@
 import { useEffect } from "react";
 import { ReactSVG } from "react-svg";
+import { useDispatch } from "react-redux";
 
 import css from "./Logout.module.css";
 
 import closeIcon from "../../assets/icons/close.svg";
 
-import { logoutUser } from "../../utils/authOperations";
+import { logoutUser } from "../../redux/auth/operations";
 
 import { SuccessToast } from "../../utils/successToast";
 import { ErrorToast } from "../../utils/errorToast";
 
-const Logout = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
+const Logout = ({ isModalOpen, closeModal }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -45,9 +48,8 @@ const Logout = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
 
   const handleClick = () => {
     try {
-      logoutUser();
+      dispatch(logoutUser());
       SuccessToast("You are successfully logged out!");
-      setIsLoggedIn(false);
       closeModal();
     } catch (error) {
       ErrorToast(

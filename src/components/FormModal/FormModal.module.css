@@ -15,7 +15,7 @@
   color: #121417;
   padding: 64px;
   width: 565px;
-  height: 90vh;
+  max-height: 90vh;
   overflow: auto;
   box-sizing: border-box;
 }

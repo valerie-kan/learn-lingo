@@ -4,18 +4,36 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import css from "../LoginForm/LoginForm.module.css";
 
 import { SignUpSchema } from "../../utils/validationSchemas";
-import { registerUser } from "../../utils/authOperations";
+import { registerUser } from "../../redux/auth/operations";
 
 import FormModal from "../FormModal/FormModal";
 import Input from "../Input/Input";
+import { useDispatch } from "react-redux";
+import { SuccessToast } from "../../utils/successToast";
+import { ErrorToast } from "../../utils/errorToast";
 
-const RegistrationForm = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
+const RegistrationForm = ({ isModalOpen, closeModal }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(SignUpSchema) });
+
+  const dispatch = useDispatch();
+
+  const onSubmit = (data) => {
+    dispatch(registerUser(data))
+      .unwrap()
+      .then(() => {
+        SuccessToast("You are successfully registered!");
+        reset();
+        closeModal();
+      })
+      .catch(() => {
+        ErrorToast("This email is already registered!");
+      });
+  };
 
   return (
     <FormModal
@@ -24,10 +42,7 @@ const RegistrationForm = ({ isModalOpen, closeModal, setIsLoggedIn }) => {
       buttonName="Sign Up"
       isModalOpen={isModalOpen}
       closeModal={closeModal}
-      handleSubmit={handleSubmit}
-      reset={reset}
-      authUser={registerUser}
-      setIsLoggedIn={setIsLoggedIn}
+      handleSubmit={handleSubmit(onSubmit)}
     >
       <div className={css.authWrapper}>
         <div>
