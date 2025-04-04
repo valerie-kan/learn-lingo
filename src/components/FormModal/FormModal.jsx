@@ -1,31 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ReactSVG } from "react-svg";
 
-import css from "./AuthModal.module.css";
+import css from "./FormModal.module.css";
 
-import eye from "../../assets/icons/eye.svg";
-import eyeOff from "../../assets/icons/eye-off.svg";
 import closeIcon from "../../assets/icons/close.svg";
 
 import { ErrorToast } from "../../utils/errorToast";
 import { SuccessToast } from "../../utils/successToast";
 
-const AuthModal = ({
-  handleSubmit,
+const FormModal = ({
   title,
   text,
   children,
   buttonName,
   isModalOpen,
   closeModal,
-  register,
-  errors,
+  handleSubmit,
   reset,
   authUser,
   setIsLoggedIn,
 }) => {
-  const [showPassword, setShowPassword] = useState(false);
-
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -58,10 +52,6 @@ const AuthModal = ({
     }
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
-
   const onSubmit = (data) => {
     try {
       authUser(data);
@@ -87,35 +77,8 @@ const AuthModal = ({
         />
         <p className={css.formText}>{text}</p>
 
-        <div className={css.authWrapper}>
-          {children}
-          <div>
-            <input
-              className={css.input}
-              type="email"
-              placeholder="Email"
-              {...register("email")}
-            />
-            {errors.email && (
-              <p className={css.errMessage}>{errors.email.message}</p>
-            )}
-          </div>
+        {children}
 
-          <div className={css.pwdWrapper}>
-            <input
-              className={css.input}
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              {...register("password")}
-            />
-            <span className={css.iconEye} onClick={togglePasswordVisibility}>
-              <ReactSVG src={showPassword ? eye : eyeOff} />
-            </span>
-            {errors.password && (
-              <p className={css.errMessage}>{errors.password.message}</p>
-            )}
-          </div>
-        </div>
         <button className={css.submitBtn} type="submit">
           {buttonName}
         </button>
@@ -124,4 +87,4 @@ const AuthModal = ({
   );
 };
 
-export default AuthModal;
+export default FormModal;

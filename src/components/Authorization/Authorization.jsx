@@ -8,14 +8,16 @@ import profileIcon from "../../assets/icons/profile.svg";
 
 import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
+import Logout from "../Logout/Logout";
 
-import { getUser, logoutUser } from "../../utils/authOperations";
-import { SuccessToast } from "../../utils/successToast";
+import { getUser } from "../../utils/authOperations";
 import { ErrorToast } from "../../utils/errorToast";
 
 const Authorization = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState(null);
 
@@ -26,8 +28,10 @@ const Authorization = () => {
         setUserName(name);
         setIsLoggedIn(true);
       } catch (error) {
-        console.log(error);
         setIsLoggedIn(false);
+        ErrorToast(
+          error.message || "Oops... Something went wrong! Try again later!"
+        );
       }
     };
 
@@ -43,19 +47,12 @@ const Authorization = () => {
   };
 
   const onLogoutClick = () => {
-    try {
-      logoutUser();
-      SuccessToast("You are successfully logged out!");
-      setIsLoggedIn(false);
-    } catch (error) {
-      ErrorToast(
-        error.message || "Oops... Something went wrong! Try again later!"
-      );
-    }
+    setLogoutModalOpen(true);
   };
 
   const closeLoginModal = () => setLoginModalOpen(false);
   const closeRegisterModal = () => setRegisterModalOpen(false);
+  const closeLogoutModal = () => setLogoutModalOpen(false);
 
   return (
     <>
@@ -103,6 +100,13 @@ const Authorization = () => {
         <RegistrationForm
           isModalOpen={registerModalOpen}
           closeModal={closeRegisterModal}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      )}
+      {logoutModalOpen && (
+        <Logout
+          closeModal={closeLogoutModal}
+          isModalOpen={logoutModalOpen}
           setIsLoggedIn={setIsLoggedIn}
         />
       )}

@@ -1,68 +1,11 @@
-/* .overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9;
-  background-color: rgba(25, 26, 21, 0.6);
-}
-
-.formWrapper {
-  background-color: #ffffff;
-  border-radius: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #121417;
-  padding: 64px;
-  width: 565px;
-  box-sizing: border-box;
-}
-
-.formTitle {
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
-}
-
-.closeIcon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.inputsWrapper {
+.authWrapper {
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin-block: 40px;
-}
-
-.input {
-  border: 1px solid rgba(18, 20, 23, 0.1);
-  border-radius: 12px;
-  padding: 16px 18px;
-  outline: none;
-}
-
-.input::placeholder {
-  line-height: 137%;
-  color: currentColor;
-}
-
-.iconEye {
-  position: absolute;
-  bottom: 165px;
-  right: 82px;
-}
-
-.submitBtn {
-  padding: 16px;
   width: 100%;
-  background-color: var(--laptop-color);
 }
 
-.submitBtn:hover {
-  background-color: var(--primary);
-} */
+.pwdWrapper {
+  position: relative;
+}

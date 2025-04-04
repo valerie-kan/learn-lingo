@@ -1,0 +1,56 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  background-color: rgba(25, 26, 21, 0.6);
+}
+
+.logoutModal {
+  background-color: #ffffff;
+  border-radius: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #121417;
+  padding: 64px;
+  width: 565px;
+  box-sizing: border-box;
+}
+
+.formTitle {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+
+.closeIcon:hover {
+  color: #8a8a89;
+}
+
+.btnWrapper {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.cancelBtn {
+  padding: 16px;
+  background-color: var(--laptop-color);
+  width: 50%;
+}
+
+.cancelBtn:hover {
+  background-color: var(--primary);
+}

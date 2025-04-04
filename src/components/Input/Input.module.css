@@ -11,6 +11,12 @@
   color: currentColor;
 }
 
+.iconEye {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+}
+
 .errMessage {
   color: #ff0000;
   font-size: 12px;
