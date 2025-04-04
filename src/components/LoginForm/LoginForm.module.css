@@ -1,11 +1,24 @@
 .authWrapper {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-block: 40px;
-  width: 100%;
+  gap: 10px;
+  margin-block: 25px;
 }
 
 .pwdWrapper {
   position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .authWrapper {
+    margin-block: 30px;
+    gap: 15px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .authWrapper {
+    margin-block: 40px;
+    gap: 18px;
+  }
 }

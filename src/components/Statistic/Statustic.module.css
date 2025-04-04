@@ -1,20 +1,21 @@
 .statWrapper {
   border: 1.5px dashed var(--laptop-color);
   border-radius: 30px;
-  padding: 40px;
+  padding: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
-  width: 1312px;
+  gap: 20px;
+  width: 390px;
   margin: 0 auto;
 }
 
 .statInfo {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 18px;
   line-height: 114%;
   color: #121417;
 }
@@ -24,5 +25,41 @@
   line-height: 129%;
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
-  width: 90px;
+}
+
+@media screen and (min-width: 768px) {
+  .statWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 30px;
+    padding: 20px;
+    width: 720px;
+  }
+
+  .statInfo {
+    gap: 10px;
+    font-size: 28px;
+  }
+
+  .statText {
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .statWrapper {
+    flex-wrap: nowrap;
+    padding: 40px;
+    gap: 100px;
+    width: 1345px;
+  }
+
+  .statInfo {
+    gap: 16px;
+  }
+
+  .statText {
+    width: 90px;
+  }
 }

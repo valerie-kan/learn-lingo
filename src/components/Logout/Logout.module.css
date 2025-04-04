@@ -13,14 +13,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #121417;
-  padding: 64px;
-  width: 565px;
-  box-sizing: border-box;
+  padding: 35px;
+  width: 340px;
 }
 
 .formTitle {
   font-weight: 500;
-  font-size: 40px;
+  font-size: 28px;
   line-height: 120%;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
@@ -45,12 +44,43 @@
   margin-top: 30px;
 }
 
-.cancelBtn {
+.logoutBtn {
   padding: 16px;
+  font-size: 14px;
   background-color: var(--laptop-color);
   width: 50%;
 }
 
-.cancelBtn:hover {
+.logoutBtn:hover {
   background-color: var(--primary);
+}
+
+@media screen and (min-width: 768px) {
+  .logoutModal {
+    padding: 50px;
+    width: 500px;
+  }
+
+  .formTitle {
+    font-size: 35px;
+  }
+
+  .logoutBtn {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .logoutModal {
+    padding: 64px;
+    width: 565px;
+  }
+
+  .formTitle {
+    font-size: 40px;
+  }
+
+  .logoutBtn {
+    font-size: 18px;
+  }
 }

@@ -69,12 +69,12 @@ const Logout = ({ isModalOpen, closeModal }) => {
         />
         <p className={css.formText}>Are you sure you want to leave?</p>
         <div className={css.btnWrapper}>
-          <button type="button" className={css.cancelBtn} onClick={handleClick}>
+          <button type="button" className={css.logoutBtn} onClick={handleClick}>
             Log Out
           </button>
           <button
             type="button"
-            className={css.cancelBtn}
+            className={css.logoutBtn}
             onClick={() => closeModal()}
           >
             Cancel

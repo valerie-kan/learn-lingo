@@ -27,9 +27,6 @@ const Authorization = () => {
 
   useEffect(() => {
     dispatch(getUser()).unwrap();
-    // .catch((error) => {
-    //   ErrorToast(error || "User is not found!");
-    // });
   }, [dispatch]);
 
   const toggleModal = (setModalOpen, value) => setModalOpen(value);

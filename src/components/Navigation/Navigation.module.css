@@ -1,6 +1,8 @@
 .nav {
   display: flex;
-  gap: 28px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   line-height: 125%;
 }
 
@@ -10,4 +12,11 @@
 
 .navLink:hover {
   color: var(--laptop-color);
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    flex-direction: row;
+    gap: 28px;
+  }
 }

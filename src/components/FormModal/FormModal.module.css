@@ -13,16 +13,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #121417;
-  padding: 64px;
-  width: 565px;
   max-height: 90vh;
+  width: 340px;
+  padding: 35px;
   overflow: auto;
-  box-sizing: border-box;
 }
 
 .formTitle {
   font-weight: 500;
-  font-size: 40px;
+  font-size: 28px;
   line-height: 120%;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
@@ -45,11 +44,43 @@
 }
 
 .submitBtn {
-  padding: 16px;
+  padding: 10px;
+  font-size: 14px;
   width: 100%;
   background-color: var(--laptop-color);
 }
 
 .submitBtn:hover {
   background-color: var(--primary);
+}
+
+@media screen and (min-width: 768px) {
+  .formWrapper {
+    padding: 50px;
+    width: 500px;
+  }
+
+  .formTitle {
+    font-size: 35px;
+  }
+
+  .submitBtn {
+    padding: 16px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .formWrapper {
+    width: 565px;
+    padding: 64px;
+  }
+
+  .formTitle {
+    font-size: 40px;
+  }
+
+  .submitBtn {
+    font-size: 18px;
+  }
 }
