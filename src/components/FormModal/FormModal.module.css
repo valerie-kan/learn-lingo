@@ -15,6 +15,8 @@
   color: #121417;
   padding: 64px;
   width: 565px;
+  height: 90vh;
+  overflow: auto;
   box-sizing: border-box;
 }
 
@@ -24,6 +26,10 @@
   line-height: 120%;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+}
+
+.formText {
+  line-height: 137%;
 }
 
 .closeIcon {

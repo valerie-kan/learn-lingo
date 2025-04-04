@@ -1,0 +1,55 @@
+.reasonTtl {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 133%;
+  margin-block: 40px 20px;
+}
+
+.radioWrapper {
+  line-height: 137%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reason {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radioBtn {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #8a8a89;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0;
+}
+
+.radioBtn::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  margin: 4px;
+}
+
+.radioBtn:checked {
+  border: 1px solid var(--laptop-color);
+}
+
+.radioBtn:checked::before {
+  background-color: var(--laptop-color);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-block: 40px;
+}

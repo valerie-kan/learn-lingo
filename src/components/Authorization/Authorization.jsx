@@ -38,21 +38,7 @@ const Authorization = () => {
     getCurrentUser();
   }, []);
 
-  const onLoginClick = () => {
-    setLoginModalOpen(true);
-  };
-
-  const onRegisterClick = () => {
-    setRegisterModalOpen(true);
-  };
-
-  const onLogoutClick = () => {
-    setLogoutModalOpen(true);
-  };
-
-  const closeLoginModal = () => setLoginModalOpen(false);
-  const closeRegisterModal = () => setRegisterModalOpen(false);
-  const closeLogoutModal = () => setLogoutModalOpen(false);
+  const toggleModal = (setModalOpen, value) => setModalOpen(value);
 
   return (
     <>
@@ -66,14 +52,17 @@ const Authorization = () => {
             <button
               className={css.logoutBtn}
               type="button"
-              onClick={onLogoutClick}
+              onClick={() => toggleModal(setLogoutModalOpen, true)}
             >
               Log out
             </button>
           </>
         ) : (
           <>
-            <div className={css.loginCont} onClick={onLoginClick}>
+            <div
+              className={css.loginCont}
+              onClick={() => toggleModal(setLoginModalOpen, true)}
+            >
               <ReactSVG className={css.loginIcon} src={loginIcon} />
               <button className={css.loginBtn} type="button">
                 Login
@@ -82,7 +71,7 @@ const Authorization = () => {
             <button
               className={css.registerBtn}
               type="button"
-              onClick={onRegisterClick}
+              onClick={() => toggleModal(setRegisterModalOpen, true)}
             >
               Registration
             </button>
@@ -92,21 +81,21 @@ const Authorization = () => {
       {loginModalOpen && (
         <LoginForm
           isModalOpen={loginModalOpen}
-          closeModal={closeLoginModal}
+          closeModal={() => toggleModal(setLoginModalOpen, false)}
           setIsLoggedIn={setIsLoggedIn}
         />
       )}
       {registerModalOpen && (
         <RegistrationForm
           isModalOpen={registerModalOpen}
-          closeModal={closeRegisterModal}
+          closeModal={() => toggleModal(setRegisterModalOpen, false)}
           setIsLoggedIn={setIsLoggedIn}
         />
       )}
       {logoutModalOpen && (
         <Logout
-          closeModal={closeLogoutModal}
           isModalOpen={logoutModalOpen}
+          closeModal={() => toggleModal(setLogoutModalOpen, false)}
           setIsLoggedIn={setIsLoggedIn}
         />
       )}
