@@ -11,12 +11,9 @@ export const getTeachers = createAsyncThunk(
     try {
       const teachersRef = ref(db);
       const data = await get(teachersRef);
-      // console.log(data);
       const teachers = data.val();
-      // console.log("Teachers: ", teachers);
       return teachers;
     } catch (error) {
-      // console.error("Error getting teachers: ", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

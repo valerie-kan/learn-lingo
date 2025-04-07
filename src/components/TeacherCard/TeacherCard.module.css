@@ -1,0 +1,119 @@
+.teacherCard {
+  border-radius: 24px;
+  padding: 24px;
+  background-color: #ffffff;
+  display: flex;
+  gap: 48px;
+  position: relative;
+  width: 1184px;
+  margin-block: 32px;
+  margin-inline: auto;
+}
+
+.imgWrapper {
+  border: 3px solid #fbe9ba;
+  border-radius: 100px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image {
+  border-radius: 100px;
+  width: 96px;
+  height: 96px;
+}
+
+.dotIcon {
+  position: absolute;
+  transform: translate(260%, 85%);
+  top: 0;
+}
+
+.teacherWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstRaw {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.language {
+  font-weight: 500;
+  line-height: 150%;
+  color: #8a8a89;
+  display: block;
+}
+
+.genInfo {
+  display: flex;
+  position: relative;
+}
+
+.lessonInfo,
+.ratingInfo,
+.priceInfo {
+  display: flex;
+  padding-inline: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.lessonInfo,
+.ratingInfo {
+  border-right: 1px solid rgba(18, 20, 23, 0.2);
+}
+
+.teacherIcon {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.price {
+  color: #38cd3e;
+  padding-left: 3px;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  margin-bottom: 32px;
+}
+
+.heartIcon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.mainInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.mainTtl {
+  color: #8a8a89;
+}
+
+.mainInfo {
+  color: #121417;
+}
+
+.languageInfo {
+  text-decoration: underline;
+  color: #121417;
+}
+
+.readMoreBtn {
+  text-decoration: underline;
+}

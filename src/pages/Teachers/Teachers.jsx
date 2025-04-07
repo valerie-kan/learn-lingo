@@ -1,12 +1,18 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { nanoid } from "nanoid";
+
 import css from "./Teachers.module.css";
 
-import { useEffect } from "react";
-
 import { getTeachers } from "../../redux/teachers/operations";
-import { useDispatch } from "react-redux";
+import { selectTeachers } from "../../redux/teachers/selectors";
+
+import TeacherCard from "../../components/TeacherCard/TeacherCard";
+import Container from "../../components/Container/Container";
 
 const Teachers = () => {
   const dispatch = useDispatch();
+  const teachersList = useSelector(selectTeachers);
 
   useEffect(() => {
     dispatch(getTeachers())
@@ -15,7 +21,18 @@ const Teachers = () => {
       .catch((err) => console.error("Помилка при запиті:", err));
   }, [dispatch]);
 
-  return <div>Teachers</div>;
+  return (
+    <Container>
+      <div className={css.teachersPage}>
+        {teachersList.map((teacher) => (
+          <TeacherCard
+            teacher={teacher}
+            key={Math.ceil(nanoid() * Math.random())}
+          />
+        ))}
+      </div>
+    </Container>
+  );
 };
 
 export default Teachers;

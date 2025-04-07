@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getTeachers } from "./operations";
 
 const initialState = {
-  teacher: null,
+  teachers: [],
   isLoading: false,
   error: null,
   page: 1,
@@ -19,9 +19,8 @@ const teachersSlice = createSlice({
         state.error = null;
       })
       .addCase(getTeachers.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.isLoading = false;
-        state.teacher = payload;
+        state.teachers = payload;
       })
       .addCase(getTeachers.rejected, (state, { payload }) => {
         state.isLoading = false;
