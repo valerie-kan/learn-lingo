@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import Loader from "./components/Loader";
 import ColorProvider from "./components/Hero/ColorProvider";
+import Teachers from "./pages/Teachers/Teachers";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Toaster />
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/teachers" element={<Teachers />} /> */}
+            <Route path="/teachers" element={<Teachers />} />
           </Routes>
         </ColorProvider>
       </Suspense>

@@ -44,7 +44,6 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(getUser.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.isLoading = false;
         state.userName = payload.userName;
         state.isLoggedIn = true;
@@ -70,5 +69,4 @@ const authSlice = createSlice({
   },
 });
 
-export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;

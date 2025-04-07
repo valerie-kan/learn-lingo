@@ -1,11 +1,15 @@
-import css from "./Hero.module.css";
-
 import { ReactSVG } from "react-svg";
+import { Link } from "react-router-dom";
+
+import css from "./Hero.module.css";
 
 import girlImg from "../../assets/images/girl.png";
 import laptop from "../../assets/icons/laptop.svg";
+// import { getTeachers } from "../../redux/teachers/operations";
+// import { useDispatch } from "react-redux";
 
 export default function Hero() {
+  // const dispatch = useDispatch();
   return (
     <div className={css.hero}>
       <div className={css.heroInfo}>
@@ -18,7 +22,13 @@ export default function Hero() {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <button className={css.startBtn}>Get started</button>
+        <Link
+          className={css.startLink}
+          to="/teachers"
+          // onClick={() => dispatch(getTeachers())}
+        >
+          Get started
+        </Link>
       </div>
 
       <div className={css.heroImg}>

@@ -63,9 +63,6 @@ export const getUser = createAsyncThunk("auth/getUser", async () => {
       if (user) {
         resolve({ userName: user.displayName });
       }
-      // else {
-      //   reject(thunkAPI.rejectWithValue("User is not found!"));
-      // }
       unsubscribe();
     });
   });
