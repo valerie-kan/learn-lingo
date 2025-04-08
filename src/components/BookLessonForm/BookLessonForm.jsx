@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
 
 import css from "./BookLessonForm.module.css";
 
@@ -9,23 +8,20 @@ import { BookLessonSchema } from "../../utils/validationSchemas";
 import FormModal from "../FormModal/FormModal";
 import Input from "../Input/Input";
 
-const BookLessonForm = () => {
+const BookLessonForm = ({ isModalOpen, setIsModalOpen }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(BookLessonSchema) });
-
-  const [bookLessonModalOpen, setBookLessonModalOpen] = useState(false);
-
   return (
     <FormModal
       title="Book trial lesson"
       text="Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs."
       buttonName="Book"
-      isModalOpen={bookLessonModalOpen}
-      closeModal={() => setBookLessonModalOpen(false)}
+      isModalOpen={isModalOpen}
+      closeModal={() => setIsModalOpen(false)}
       handleSubmit={handleSubmit}
       reset={reset}
     >

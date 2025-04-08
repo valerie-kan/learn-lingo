@@ -1,4 +1,5 @@
 import { ReactSVG } from "react-svg";
+import { useState } from "react";
 
 import css from "./TeacherCard.module.css";
 
@@ -6,9 +7,13 @@ import dotIcon from "../../assets/icons/green-circle.svg";
 import bookIcon from "../../assets/icons/book.svg";
 import starIcon from "../../assets/icons/star.svg";
 import heartIcon from "../../assets/icons/heart.svg";
-import { Link } from "react-router-dom";
+
+import TeacherMainInfo from "../TeacherMainInfo/TeacherMainInfo";
+import BookLessonForm from "../BookLessonForm/BookLessonForm";
 
 const TeacherCard = ({ teacher }) => {
+  const [showText, setShowText] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className={css.teacherCard}>
       <div className={css.imgWrapper}>
@@ -21,10 +26,7 @@ const TeacherCard = ({ teacher }) => {
       </div>
       <div className={css.teacherWrapper}>
         <div className={css.firstRaw}>
-          {/* <div> */}
           <span className={css.language}>Languages</span>
-
-          {/* </div> */}
           <div className={css.genInfo}>
             <p className={css.lessonInfo}>
               <img className={css.teacherIcon} src={bookIcon} />
@@ -47,31 +49,37 @@ const TeacherCard = ({ teacher }) => {
           {teacher.name} {teacher.surname}
         </p>
         <ReactSVG className={css.heartIcon} src={heartIcon} />
-        <div className={css.mainInfoWrapper}>
-          <p className={css.mainTtl}>
-            Speaks:{" "}
-            {teacher.languages === 1 ? (
-              <span className={css.languageInfo}>{teacher.languages}</span>
-            ) : (
-              <span className={css.languageInfo}>
-                {teacher.languages[0]}, {teacher.languages[1]}
-              </span>
-            )}
-          </p>
-          <p className={css.mainTtl}>
-            Lesson Info:{" "}
-            <span className={css.mainInfo}>{teacher.lesson_info}</span>
-          </p>
-          <p className={css.mainTtl}>
-            Conditions:{" "}
-            <span className={css.mainInfo}>{teacher.conditions}</span>
-          </p>
+
+        <TeacherMainInfo
+          teacher={teacher}
+          setShowText={setShowText}
+          showText={showText}
+        />
+
+        <div className={css.levels}>
+          {teacher.levels.map((level) => (
+            <p className={css.level} key={level}>
+              #{level}
+            </p>
+          ))}
         </div>
 
-        <Link className={css.readMoreBtn} type="button">
-          Read more
-        </Link>
+        {showText && (
+          <button
+            className={css.bookLessonBtn}
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Book trial lesson
+          </button>
+        )}
       </div>
+      {isModalOpen && (
+        <BookLessonForm
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
     </div>
   );
 };

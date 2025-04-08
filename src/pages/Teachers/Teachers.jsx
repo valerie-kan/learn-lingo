@@ -9,6 +9,7 @@ import { selectTeachers } from "../../redux/teachers/selectors";
 
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import Container from "../../components/Container/Container";
+import { ErrorToast } from "../../utils/errorToast";
 
 const Teachers = () => {
   const dispatch = useDispatch();
@@ -17,20 +18,17 @@ const Teachers = () => {
   useEffect(() => {
     dispatch(getTeachers())
       .unwrap()
-      .then((data) => console.log("Отримано вчителів:", data))
-      .catch((err) => console.error("Помилка при запиті:", err));
+      .then(() => {
+        return;
+      })
+      .catch((error) => ErrorToast("Ooops... Something went wrong:", error));
   }, [dispatch]);
 
   return (
-    <Container>
-      <div className={css.teachersPage}>
-        {teachersList.map((teacher) => (
-          <TeacherCard
-            teacher={teacher}
-            key={Math.ceil(nanoid() * Math.random())}
-          />
-        ))}
-      </div>
+    <Container className={css.teachersPage}>
+      {teachersList.map((teacher) => (
+        <TeacherCard teacher={teacher} key={nanoid()} />
+      ))}
     </Container>
   );
 };

@@ -1,0 +1,30 @@
+.mainInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.mainInfoTtl {
+  color: #8a8a89;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.languageInfo {
+  text-decoration: underline;
+  color: #121417;
+}
+
+.mainInfo {
+  color: #121417;
+}
+
+.readMoreLink {
+  text-decoration: underline;
+  transition: color 0.25s;
+}
+
+.readMoreLink:hover {
+  color: #8a8a89;
+}

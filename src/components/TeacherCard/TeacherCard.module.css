@@ -5,15 +5,15 @@
   display: flex;
   gap: 48px;
   position: relative;
-  width: 1184px;
+  max-width: 1184px;
   margin-block: 32px;
   margin-inline: auto;
 }
 
 .imgWrapper {
-  border: 3px solid #fbe9ba;
+  border: 3px solid var(--primary);
   border-radius: 100px;
-  width: 120px;
+  min-width: 120px;
   height: 120px;
   display: flex;
   justify-content: center;
@@ -40,7 +40,6 @@
 
 .firstRaw {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 8px;
 }
 
@@ -49,6 +48,7 @@
   line-height: 150%;
   color: #8a8a89;
   display: block;
+  margin-right: 192px;
 }
 
 .genInfo {
@@ -68,6 +68,7 @@
 .lessonInfo,
 .ratingInfo {
   border-right: 1px solid rgba(18, 20, 23, 0.2);
+  border-height: 80%;
 }
 
 .teacherIcon {
@@ -94,26 +95,31 @@
   right: 24px;
 }
 
-.mainInfoWrapper {
+.levels {
   display: flex;
-  flex-direction: column;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-top: 32px;
 }
 
-.mainTtl {
-  color: #8a8a89;
+.level {
+  padding: 8px 12px;
+  border-radius: 35px;
+  border: 1px solid rgba(18, 20, 23, 0.2);
 }
 
-.mainInfo {
-  color: #121417;
+.level:first-of-type {
+  background-color: var(--laptop-color);
+  border: none;
 }
 
-.languageInfo {
-  text-decoration: underline;
-  color: #121417;
+.bookLessonBtn {
+  font-size: 18px;
+  line-height: 156%;
+  width: 232px;
+  background-color: var(--laptop-color);
+  margin-top: 32px;
 }
 
-.readMoreBtn {
-  text-decoration: underline;
+.bookLessonBtn:hover {
+  background-color: var(--primary);
 }

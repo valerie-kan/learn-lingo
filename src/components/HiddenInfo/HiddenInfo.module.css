@@ -1,0 +1,44 @@
+.aboutTeacher {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.experience {
+  line-height: 150%;
+}
+
+.imgNameRating {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.reviewInitial {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+}
+
+.reviewName {
+  margin-bottom: 2px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #8a8a89;
+}
+
+.reviewRating {
+  display: flex;
+  gap: 8px;
+}
+
+.reviewComment {
+  font-weight: 500;
+  line-height: 150%;
+}
