@@ -39,7 +39,6 @@ const RegistrationForm = ({ isModalOpen, closeModal }) => {
     <FormModal
       title="Registration"
       text="Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information"
-      buttonName="Sign Up"
       isModalOpen={isModalOpen}
       closeModal={closeModal}
       handleSubmit={handleSubmit(onSubmit)}
@@ -73,6 +72,9 @@ const RegistrationForm = ({ isModalOpen, closeModal }) => {
           />
         </div>
       </div>
+      <button className={css.submitBtn} type="submit">
+        Sign Up
+      </button>
     </FormModal>
   );
 };

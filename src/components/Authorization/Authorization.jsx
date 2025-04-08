@@ -13,7 +13,6 @@ import Logout from "../Logout/Logout";
 
 import { selectIsLoggedIn, selectUserName } from "../../redux/auth/selectors";
 import { getUser } from "../../redux/auth/operations";
-import { ErrorToast } from "../../utils/errorToast";
 
 const Authorization = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);

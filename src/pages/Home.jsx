@@ -6,11 +6,8 @@ import Statistic from "../components/Statistic/Statistic";
 const Home = () => {
   return (
     <>
-      <Container>
-        <Header />
-        <Hero />
-        <Statistic />
-      </Container>
+      <Hero />
+      <Statistic />
     </>
   );
 };

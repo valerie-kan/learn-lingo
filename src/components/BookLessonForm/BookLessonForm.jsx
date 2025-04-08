@@ -7,24 +7,49 @@ import { BookLessonSchema } from "../../utils/validationSchemas";
 
 import FormModal from "../FormModal/FormModal";
 import Input from "../Input/Input";
+import { SuccessToast } from "../../utils/successToast";
 
-const BookLessonForm = ({ isModalOpen, setIsModalOpen }) => {
+const BookLessonForm = ({ isModalOpen, setIsModalOpen, teacher }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(BookLessonSchema) });
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const onSubmit = () => {
+    SuccessToast(
+      "Thank you! Your request was successfully sent to the teacher and you will be contacted soon!"
+    );
+    closeModal();
+  };
+
   return (
     <FormModal
       title="Book trial lesson"
       text="Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs."
-      buttonName="Book"
       isModalOpen={isModalOpen}
-      closeModal={() => setIsModalOpen(false)}
-      handleSubmit={handleSubmit}
+      closeModal={closeModal}
+      handleSubmit={handleSubmit(onSubmit)}
       reset={reset}
     >
+      <div className={css.teacherWrapper}>
+        <img
+          className={css.image}
+          src={teacher.avatar_url}
+          alt="Teacher photo"
+        />
+        <div>
+          <p className={css.teacherTtl}>Your teacher</p>
+          <p className={css.teacherName}>
+            {teacher.name} {teacher.surname}
+          </p>
+        </div>
+      </div>
       <h3 className={css.reasonTtl}>
         What is your main reason for learning English?
       </h3>
@@ -75,29 +100,41 @@ const BookLessonForm = ({ isModalOpen, setIsModalOpen }) => {
           Culture, travel or hobby
         </label>
       </div>
+      {errors.reason && (
+        <p className={css.errMessage}>{errors.reason.message}</p>
+      )}
 
       <div className={css.userInfo}>
-        <Input
-          type="text"
-          placeholder="Full Name"
-          name="name"
-          register={register}
-          errors={errors}
-        />
-        <Input
-          type="email"
-          placeholder="Email"
-          register={register}
-          errors={errors}
-        />
-        <Input
-          type="text"
-          placeholder="Phone number"
-          name="phone"
-          register={register}
-          errors={errors}
-        />
+        <div>
+          <Input
+            type="text"
+            placeholder="Full Name"
+            name="name"
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div>
+          <Input
+            type="email"
+            placeholder="Email"
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            placeholder="Phone number"
+            name="phone"
+            register={register}
+            errors={errors}
+          />
+        </div>
       </div>
+      <button className={css.submitBtn} type="submit">
+        Book
+      </button>
     </FormModal>
   );
 };

@@ -30,7 +30,6 @@ export const getTeachers = createAsyncThunk(
         teachersQuery = query(ref(db), orderByKey(), limitToFirst(perPage));
       }
       const data = await get(teachersQuery);
-      console.log(data);
       const dataVal = data.val();
       const teachers = Object.entries(dataVal || []).map(([key, value]) => ({
         id: key,

@@ -1,19 +1,43 @@
 import { ReactSVG } from "react-svg";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import clsx from "clsx";
 
 import css from "./TeacherCard.module.css";
 
 import dotIcon from "../../assets/icons/green-circle.svg";
-import bookIcon from "../../assets/icons/book.svg";
-import starIcon from "../../assets/icons/star.svg";
 import heartIcon from "../../assets/icons/heart.svg";
+
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { SuccessToast } from "../../utils/successToast";
 
 import TeacherMainInfo from "../TeacherMainInfo/TeacherMainInfo";
 import BookLessonForm from "../BookLessonForm/BookLessonForm";
+import { FavouritesModal } from "../FavouritesModal/FavouritesModal";
+import FirstRow from "./FirstRow/FirstRow";
 
 const TeacherCard = ({ teacher }) => {
   const [showText, setShowText] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBookLessonModalOpen, setIsBookLessonModalOpen] = useState(false);
+  const [isFavouritesModalOpen, setIsFavouritesModalOpen] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  const handleHeartClick = () => {
+    if (!isLoggedIn) {
+      setIsFavouritesModalOpen(true);
+      return;
+    }
+
+    setIsFavourite(!isFavourite);
+    if (isFavourite) {
+      SuccessToast("The teacher was removed from your favourites!");
+    } else {
+      SuccessToast("The teacher was added to your favourites!");
+    }
+  };
+
   return (
     <div className={css.teacherCard}>
       <div className={css.imgWrapper}>
@@ -25,37 +49,20 @@ const TeacherCard = ({ teacher }) => {
         <ReactSVG className={css.dotIcon} src={dotIcon} />
       </div>
       <div className={css.teacherWrapper}>
-        <div className={css.firstRaw}>
-          <span className={css.language}>Languages</span>
-          <div className={css.genInfo}>
-            <p className={css.lessonInfo}>
-              <img className={css.teacherIcon} src={bookIcon} />
-              Lessons online
-            </p>
-            <p className={css.lessonInfo}>
-              Lessons done: {teacher.lessons_done}
-            </p>
-            <p className={css.ratingInfo}>
-              <img className={css.teacherIcon} src={starIcon} /> Rating:{" "}
-              {teacher.rating}
-            </p>
-            <p className={css.priceInfo}>
-              Price / 1 hour:{" "}
-              <span className={css.price}>{teacher.price_per_hour}$</span>
-            </p>
-          </div>
-        </div>
+        <FirstRow teacher={teacher} />
         <p className={css.name}>
           {teacher.name} {teacher.surname}
         </p>
-        <ReactSVG className={css.heartIcon} src={heartIcon} />
-
+        <ReactSVG
+          className={clsx(css.heartIcon, isFavourite && css.isFavourite)}
+          src={heartIcon}
+          onClick={handleHeartClick}
+        />
         <TeacherMainInfo
           teacher={teacher}
           setShowText={setShowText}
           showText={showText}
         />
-
         <div className={css.levels}>
           {teacher.levels.map((level) => (
             <p className={css.level} key={level}>
@@ -63,21 +70,28 @@ const TeacherCard = ({ teacher }) => {
             </p>
           ))}
         </div>
-
         {showText && (
           <button
             className={css.bookLessonBtn}
             type="button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsBookLessonModalOpen(true)}
           >
             Book trial lesson
           </button>
         )}
       </div>
-      {isModalOpen && (
+      {isBookLessonModalOpen && (
         <BookLessonForm
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
+          isModalOpen={isBookLessonModalOpen}
+          setIsModalOpen={setIsBookLessonModalOpen}
+          teacher={teacher}
+        />
+      )}
+      {isFavouritesModalOpen && (
+        <FavouritesModal
+          isModalOpen={isFavouritesModalOpen}
+          setIsModalOpen={setIsFavouritesModalOpen}
+          closeModal={() => setIsFavouritesModalOpen(false)}
         />
       )}
     </div>

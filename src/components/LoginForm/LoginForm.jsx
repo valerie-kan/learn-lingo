@@ -11,8 +11,6 @@ import Input from "../Input/Input";
 import { useDispatch } from "react-redux";
 import { SuccessToast } from "../../utils/successToast";
 import { ErrorToast } from "../../utils/errorToast";
-// import { useSelector } from "react-redux";
-// import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const LoginForm = ({ isModalOpen, closeModal }) => {
   const {
@@ -23,7 +21,6 @@ const LoginForm = ({ isModalOpen, closeModal }) => {
   } = useForm({ resolver: yupResolver(LoginSchema) });
 
   const dispatch = useDispatch();
-  // const error = useSelector(selectError);
 
   const onSubmit = (data) => {
     dispatch(loginUser(data))
@@ -42,7 +39,6 @@ const LoginForm = ({ isModalOpen, closeModal }) => {
     <FormModal
       title="Log In"
       text="Welcome back! Please enter your credentials to access your account and continue your search for a teacher."
-      buttonName="Log In"
       isModalOpen={isModalOpen}
       closeModal={closeModal}
       handleSubmit={handleSubmit(onSubmit)}
@@ -66,6 +62,9 @@ const LoginForm = ({ isModalOpen, closeModal }) => {
           />
         </div>
       </div>
+      <button className={css.submitBtn} type="submit">
+        Log In
+      </button>
     </FormModal>
   );
 };

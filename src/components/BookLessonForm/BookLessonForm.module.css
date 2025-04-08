@@ -1,3 +1,26 @@
+.teacherWrapper {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.image {
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+}
+
+.teacherTtl {
+  font-size: 12px;
+  line-height: 133%;
+  color: #8a8a89;
+  margin-bottom: 4px;
+}
+
+.teacherName {
+  line-height: 150%;
+}
+
 .reasonTtl {
   font-size: 24px;
   line-height: 133%;
@@ -13,9 +36,9 @@
 
 .reason {
   display: flex;
-  gap: 8px;
   align-items: center;
   cursor: pointer;
+  gap: 8px;
 }
 
 .radioBtn {
@@ -46,9 +69,33 @@
   background-color: var(--laptop-color);
 }
 
+.errMessage {
+  color: #ff0000;
+  font-size: 12px;
+}
+
 .userInfo {
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin-block: 40px;
+}
+
+.submitBtn {
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .submitBtn {
+    padding: 16px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .submitBtn {
+    font-size: 18px;
+  }
 }

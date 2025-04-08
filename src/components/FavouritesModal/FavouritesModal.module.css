@@ -1,24 +1,15 @@
-.btnWrapper {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 15px;
-}
-
 .modalBtn {
+  margin-top: 15px;
   padding: 10px;
   font-size: 14px;
   width: 50%;
+  display: block;
+  margin-inline: auto;
 }
 
 @media screen and (min-width: 768px) {
-  .btnWrapper {
-    flex-direction: row;
-    gap: 25px;
-    margin-top: 30px;
-  }
-
   .modalBtn {
+    margin-top: 30px;
     font-size: 16px;
   }
 }

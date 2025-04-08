@@ -1,0 +1,43 @@
+.firstRow {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.language {
+  font-weight: 500;
+  line-height: 150%;
+  color: #8a8a89;
+  display: block;
+  margin-right: 192px;
+}
+
+.genInfo {
+  display: flex;
+  position: relative;
+}
+
+.lessonInfo,
+.ratingInfo,
+.priceInfo {
+  display: flex;
+  padding-inline: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.lessonInfo,
+.ratingInfo {
+  border-right: 1px solid rgba(18, 20, 23, 0.2);
+}
+
+.bookIcon,
+.starIcon {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.price {
+  color: #38cd3e;
+  padding-left: 3px;
+}

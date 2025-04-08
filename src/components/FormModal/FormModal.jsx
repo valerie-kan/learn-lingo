@@ -9,7 +9,6 @@ const FormModal = ({
   title,
   text,
   children,
-  buttonName,
   isModalOpen,
   closeModal,
   handleSubmit,
@@ -58,10 +57,6 @@ const FormModal = ({
         <p className={css.formText}>{text}</p>
 
         {children}
-
-        <button className={css.submitBtn} type="submit">
-          {buttonName}
-        </button>
       </form>
     </div>
   );

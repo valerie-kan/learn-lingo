@@ -14,8 +14,8 @@ import {
 import { resetTeachers } from "../../redux/teachers/slice";
 
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
-import Container from "../../components/Container/Container";
 import { ErrorToast } from "../../utils/errorToast";
+import Container from "../../components/Container/Container";
 
 const Teachers = () => {
   const dispatch = useDispatch();

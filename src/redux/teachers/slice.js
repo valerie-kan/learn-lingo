@@ -30,7 +30,6 @@ const teachersSlice = createSlice({
       .addCase(getTeachers.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.teachers = [...state.teachers, ...payload];
-        console.log(payload);
         if (payload.length < state.perPage) {
           state.hasMore = false;
         } else {

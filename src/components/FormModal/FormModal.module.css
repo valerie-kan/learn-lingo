@@ -27,6 +27,7 @@
 }
 
 .formText {
+  font-weight: 400;
   line-height: 137%;
 }
 
@@ -42,17 +43,6 @@
   color: #8a8a89;
 }
 
-.submitBtn {
-  padding: 10px;
-  font-size: 14px;
-  width: 100%;
-  background-color: var(--laptop-color);
-}
-
-.submitBtn:hover {
-  background-color: var(--primary);
-}
-
 @media screen and (min-width: 768px) {
   .formWrapper {
     padding: 50px;
@@ -61,11 +51,6 @@
 
   .formTitle {
     font-size: 35px;
-  }
-
-  .submitBtn {
-    padding: 16px;
-    font-size: 16px;
   }
 }
 
@@ -77,9 +62,5 @@
 
   .formTitle {
     font-size: 40px;
-  }
-
-  .submitBtn {
-    font-size: 18px;
   }
 }
