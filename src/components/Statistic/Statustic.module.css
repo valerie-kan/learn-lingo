@@ -14,7 +14,6 @@
 .statInfo {
   display: flex;
   gap: 8px;
-  font-weight: 500;
   font-size: 18px;
   line-height: 114%;
   color: #121417;

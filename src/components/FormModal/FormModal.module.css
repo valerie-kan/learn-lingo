@@ -20,7 +20,6 @@
 }
 
 .formTitle {
-  font-weight: 500;
   font-size: 28px;
   line-height: 120%;
   letter-spacing: -0.02em;
@@ -57,7 +56,7 @@
 @media screen and (min-width: 768px) {
   .formWrapper {
     padding: 50px;
-    width: 500px;
+    width: 400px;
   }
 
   .formTitle {
@@ -72,7 +71,7 @@
 
 @media screen and (min-width: 1440px) {
   .formWrapper {
-    width: 565px;
+    width: 437px;
     padding: 64px;
   }
 

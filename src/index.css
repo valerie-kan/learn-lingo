@@ -20,6 +20,7 @@ h3,
 p {
   margin: 0;
   padding: 0;
+  font-weight: 500;
 }
 
 button {
@@ -28,10 +29,14 @@ button {
   padding: 14px 39px;
   font-weight: 700;
   font-family: inherit;
-  background-color: #121417;
+  background-color: var(--laptop-color);
   color: inherit;
   cursor: pointer;
   transition: background-color 0.25s;
+}
+
+button:hover {
+  background-color: var(--primary);
 }
 
 img {

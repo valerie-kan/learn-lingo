@@ -68,7 +68,6 @@
 .lessonInfo,
 .ratingInfo {
   border-right: 1px solid rgba(18, 20, 23, 0.2);
-  border-height: 80%;
 }
 
 .teacherIcon {
@@ -83,7 +82,6 @@
 }
 
 .name {
-  font-weight: 500;
   font-size: 24px;
   line-height: 100%;
   margin-bottom: 32px;
@@ -103,6 +101,8 @@
 
 .level {
   padding: 8px 12px;
+  font-size: 14px;
+  line-height: 114%;
   border-radius: 35px;
   border: 1px solid rgba(18, 20, 23, 0.2);
 }
@@ -115,11 +115,7 @@
 .bookLessonBtn {
   font-size: 18px;
   line-height: 156%;
+  padding: 16px;
   width: 232px;
-  background-color: var(--laptop-color);
   margin-top: 32px;
-}
-
-.bookLessonBtn:hover {
-  background-color: var(--primary);
 }

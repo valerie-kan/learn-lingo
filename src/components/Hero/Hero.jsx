@@ -5,11 +5,8 @@ import css from "./Hero.module.css";
 
 import girlImg from "../../assets/images/girl.png";
 import laptop from "../../assets/icons/laptop.svg";
-// import { getTeachers } from "../../redux/teachers/operations";
-// import { useDispatch } from "react-redux";
 
 export default function Hero() {
-  // const dispatch = useDispatch();
   return (
     <div className={css.hero}>
       <div className={css.heroInfo}>
@@ -22,11 +19,7 @@ export default function Hero() {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <Link
-          className={css.startLink}
-          to="/teachers"
-          // onClick={() => dispatch(getTeachers())}
-        >
+        <Link className={css.startLink} to="/teachers">
           Get started
         </Link>
       </div>

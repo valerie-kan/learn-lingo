@@ -31,9 +31,12 @@
 
 .loginBtn {
   background-color: inherit;
-  color: currentColor;
   font-size: 14px;
   padding: 0;
+}
+
+.loginBtn:hover {
+  background-color: inherit;
 }
 
 .registerBtn,
@@ -42,6 +45,8 @@
   min-width: 70px;
   font-size: 14px;
   padding: 5px 10px;
+  line-height: 125%;
+  background-color: #121417;
 }
 
 .registerBtn:hover,

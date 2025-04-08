@@ -5,13 +5,22 @@ const initialState = {
   teachers: [],
   isLoading: false,
   error: null,
-  page: 1,
+  lastKey: null,
   perPage: 4,
+  hasMore: true,
 };
 
 const teachersSlice = createSlice({
   name: "teachers",
   initialState,
+  reducers: {
+    resetTeachers: (state) => {
+      state.teachers = [];
+      state.lastKey = null;
+      state.hasMore = true;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getTeachers.pending, (state) => {
@@ -20,7 +29,13 @@ const teachersSlice = createSlice({
       })
       .addCase(getTeachers.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.teachers = payload;
+        state.teachers = [...state.teachers, ...payload];
+        console.log(payload);
+        if (payload.length < state.perPage) {
+          state.hasMore = false;
+        } else {
+          state.lastKey = payload[payload.length - 1].id;
+        }
       })
       .addCase(getTeachers.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -29,4 +44,5 @@ const teachersSlice = createSlice({
   },
 });
 
+export const { resetTeachers } = teachersSlice.actions;
 export default teachersSlice.reducer;
