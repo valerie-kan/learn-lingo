@@ -10,7 +10,8 @@
   transition: color 0.25s;
 }
 
-.navLink:hover {
+.navLink:hover,
+.active {
   color: var(--laptop-color);
 }
 

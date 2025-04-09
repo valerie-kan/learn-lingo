@@ -1,5 +1,5 @@
 import { ReactSVG } from "react-svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import clsx from "clsx";
 
@@ -10,13 +10,15 @@ import heartIcon from "../../assets/icons/heart.svg";
 
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { SuccessToast } from "../../utils/successToast";
+import { ErrorToast } from "../../utils/errorToast";
+import { getFavourites, saveFavourites } from "../../utils/favourites";
 
 import TeacherMainInfo from "../TeacherMainInfo/TeacherMainInfo";
 import BookLessonForm from "../BookLessonForm/BookLessonForm";
 import { FavouritesModal } from "../FavouritesModal/FavouritesModal";
 import FirstRow from "./FirstRow/FirstRow";
 
-const TeacherCard = ({ teacher }) => {
+const TeacherCard = ({ teacher, onFavouriteToggle }) => {
   const [showText, setShowText] = useState(false);
   const [isBookLessonModalOpen, setIsBookLessonModalOpen] = useState(false);
   const [isFavouritesModalOpen, setIsFavouritesModalOpen] = useState(false);
@@ -24,17 +26,39 @@ const TeacherCard = ({ teacher }) => {
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
+  useEffect(() => {
+    const favourites = getFavourites();
+    setIsFavourite(favourites.some((item) => item.id === teacher.id));
+  }, [teacher.id]);
+
   const handleHeartClick = () => {
     if (!isLoggedIn) {
       setIsFavouritesModalOpen(true);
       return;
     }
 
-    setIsFavourite(!isFavourite);
-    if (isFavourite) {
-      SuccessToast("The teacher was removed from your favourites!");
-    } else {
-      SuccessToast("The teacher was added to your favourites!");
+    try {
+      const favourites = getFavourites();
+
+      let updatedFavourites;
+
+      if (favourites.some((item) => item.id === teacher.id)) {
+        updatedFavourites = favourites.filter((item) => item.id !== teacher.id);
+        setIsFavourite(false);
+        SuccessToast("The teacher was removed from your favourites!");
+      } else {
+        updatedFavourites = [...favourites, teacher];
+        setIsFavourite(true);
+        SuccessToast("The teacher was added to your favourites!");
+      }
+
+      saveFavourites(updatedFavourites);
+
+      if (onFavouriteToggle) {
+        onFavouriteToggle(updatedFavourites);
+      }
+    } catch (error) {
+      ErrorToast(error.message || "Request failed! Please try again later");
     }
   };
 

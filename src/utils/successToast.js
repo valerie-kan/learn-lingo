@@ -2,6 +2,7 @@ import { toast } from "react-hot-toast";
 
 export const SuccessToast = (message) => {
   toast.success(message, {
+    position: "top-right",
     style: {
       background: "#D7E3FF",
       color: "#407BFF",

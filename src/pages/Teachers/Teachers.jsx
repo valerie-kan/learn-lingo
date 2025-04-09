@@ -11,10 +11,10 @@ import {
   selectPerPage,
   selectTeachers,
 } from "../../redux/teachers/selectors";
-import { resetTeachers } from "../../redux/teachers/slice";
+
+import { ErrorToast } from "../../utils/errorToast";
 
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
-import { ErrorToast } from "../../utils/errorToast";
 import Container from "../../components/Container/Container";
 
 const Teachers = () => {
@@ -26,14 +26,15 @@ const Teachers = () => {
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    resetTeachers();
-    dispatch(getTeachers({ perPage }))
-      .unwrap()
-      .then(() => {
-        return;
-      })
-      .catch((error) => ErrorToast("Ooops... Something went wrong:", error));
-  }, [dispatch, perPage]);
+    if (teachersList.length === 0) {
+      dispatch(getTeachers({ perPage }))
+        .unwrap()
+        .then(() => {
+          return;
+        })
+        .catch((error) => ErrorToast("Ooops... Something went wrong:", error));
+    }
+  }, [dispatch, perPage, teachersList.length]);
 
   const handleClick = () => {
     dispatch(getTeachers({ perPage, lastKey }));
