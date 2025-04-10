@@ -15,7 +15,8 @@ import {
 import { ErrorToast } from "../../utils/errorToast";
 
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
-import Container from "../../components/Container/Container";
+import Filters from "../../components/Filters/Filters";
+import Loader from "../../components/Loader";
 
 const Teachers = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,9 @@ const Teachers = () => {
   };
 
   return (
-    <Container className={css.teachersPage}>
+    <div className={css.teachersPage}>
+      {isLoading && <Loader />}
+      <Filters teachers={teachersList} />
       {teachersList.map((teacher) => (
         <TeacherCard teacher={teacher} key={teacher.id} />
       ))}
@@ -55,7 +58,7 @@ const Teachers = () => {
           Load more
         </button>
       )}
-    </Container>
+    </div>
   );
 };
 

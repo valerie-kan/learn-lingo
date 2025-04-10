@@ -1,12 +1,12 @@
 import { ReactSVG } from "react-svg";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import clsx from "clsx";
 
 import css from "./TeacherCard.module.css";
 
 import dotIcon from "../../assets/icons/green-circle.svg";
 import heartIcon from "../../assets/icons/heart.svg";
+import favouriteIcon from "../../assets/icons/heart-active.svg";
 
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { SuccessToast } from "../../utils/successToast";
@@ -77,11 +77,19 @@ const TeacherCard = ({ teacher, onFavouriteToggle }) => {
         <p className={css.name}>
           {teacher.name} {teacher.surname}
         </p>
-        <ReactSVG
-          className={clsx(css.heartIcon, isFavourite && css.isFavourite)}
-          src={heartIcon}
-          onClick={handleHeartClick}
-        />
+        {isFavourite ? (
+          <ReactSVG
+            className={css.isFavourite}
+            src={favouriteIcon}
+            onClick={handleHeartClick}
+          />
+        ) : (
+          <ReactSVG
+            className={css.heartIcon}
+            src={heartIcon}
+            onClick={handleHeartClick}
+          />
+        )}
         <TeacherMainInfo
           teacher={teacher}
           setShowText={setShowText}

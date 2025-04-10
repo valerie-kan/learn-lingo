@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import { Suspense } from "react";
-// import { Toaster } from "react-hot-toast";
 
 import Loader from "./components/Loader";
 import ColorProvider from "./components/Hero/ColorProvider";

@@ -1,7 +1,7 @@
 .firstRow {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .language {
@@ -9,20 +9,20 @@
   line-height: 150%;
   color: #8a8a89;
   display: block;
-  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 .genInfo {
   display: flex;
   flex-wrap: wrap;
-  /* position: relative; */
+  row-gap: 3px;
 }
 
 .lessonInfo,
 .ratingInfo,
 .priceInfo {
   display: flex;
-  padding-inline: 5px;
+  padding-inline: 8px;
   justify-content: center;
   align-items: center;
 }
@@ -45,11 +45,28 @@
 }
 
 @media screen and (min-width: 768px) {
+  .firstRow {
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+  }
+
+  .language {
+    margin-right: 80px;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .firstRow {
-    flex-wrap: no-wrap;
+    margin-bottom: 8px;
+  }
+
+  .language {
+    margin-right: 15px;
+  }
+
+  .genInfo {
+    flex-wrap: nowrap;
   }
 
   .language {

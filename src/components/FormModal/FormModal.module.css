@@ -14,13 +14,13 @@
   transform: translate(-50%, -50%);
   color: #121417;
   max-height: 70vh;
-  width: 340px;
+  width: 280px;
   padding: 35px;
   overflow: auto;
 }
 
 .formTitle {
-  font-size: 28px;
+  font-size: 24px;
   line-height: 120%;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
@@ -47,6 +47,10 @@
   .formWrapper {
     padding: 50px;
     width: 400px;
+  }
+
+  .formTitle {
+    font-size: 28px;
   }
 
   .formTitle {

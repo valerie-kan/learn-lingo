@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   line-height: 125%;
+  font-size: 14px;
 }
 
 .navLink {
@@ -19,5 +20,6 @@
   .nav {
     flex-direction: row;
     gap: 28px;
+    font-size: 16px;
   }
 }
