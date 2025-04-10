@@ -1,9 +1,11 @@
-import { BarLoader } from "react-spinners/BarLoader";
+import { BarLoader } from "react-spinners";
 
 const Loader = () => {
   return (
-    <div style={{ textAlign: "center" }}>
-      <BarLoader color="##96a9eb" />
+    <div
+      style={{ display: "flex", justifyContent: "center", marginTop: "30px" }}
+    >
+      <BarLoader color="#96a9eb" />
     </div>
   );
 };

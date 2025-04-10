@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 
 import Loader from "./components/Loader";
 import ColorProvider from "./components/Hero/ColorProvider";
 import PrivateRoute from "./components/PrivateRoute";
 import SharedLayout from "./components/SharedLayout";
 
-import Home from "./pages/Home";
-import Teachers from "./pages/Teachers/Teachers";
-import Favourites from "./pages/Favourites/Favourites";
+const Home = lazy(() => import("./pages/Home"));
+const Teachers = lazy(() => import("./pages/Teachers/Teachers"));
+const Favourites = lazy(() => import("./pages/Favourites/Favourites"));
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
                   </PrivateRoute>
                 }
               />
+              <Route path="*" element={<Home />} />
             </Route>
           </Routes>
         </ColorProvider>
