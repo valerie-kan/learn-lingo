@@ -1,6 +1,5 @@
 export const getLanguages = (teachers) => {
   const languages = teachers.flatMap((teacher) => teacher.languages);
-  // console.log([...new Set(languages)]);
   return [...new Set(languages)];
 };
 

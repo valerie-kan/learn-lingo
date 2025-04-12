@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 
 import css from "./Filters.module.css";
 
@@ -7,14 +6,9 @@ import { getLanguages } from "../../utils/filtration";
 import { getLevels } from "../../utils/filtration";
 import { getPrices } from "../../utils/filtration";
 
-// import { resetTeachers } from "../../redux/teachers/slice";
-import { getTeachers } from "../../redux/teachers/operations";
-
 import SelectInput from "../SelectInput/SelectInput";
 
 const Filters = ({ teachers }) => {
-  const dispatch = useDispatch();
-
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isLevelsDropdownOpen, setIsLevelsDropdownOpen] = useState(false);
   const [isPriceDropdownOpen, setIsPriceDropdownOpen] = useState(false);
@@ -26,19 +20,6 @@ const Filters = ({ teachers }) => {
   const selectLangRef = useRef(null);
   const selectLevelRef = useRef(null);
   const selectPriceRef = useRef(null);
-
-  useEffect(() => {
-    if (langSelected || levelSelected || priceSelected) {
-      dispatch(
-        getTeachers({
-          perPage: 4,
-          lang: langSelected,
-          level: levelSelected,
-          price: priceSelected,
-        })
-      );
-    }
-  }, [langSelected, levelSelected, priceSelected]);
 
   useEffect(() => {
     if (teachers.length > 0) {
