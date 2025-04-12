@@ -15,3 +15,8 @@ Through other functions: users can book a trial lesson with a tutor they like. T
 # Technologies used:
 
 Vite, Firebase, React, Redux, React Router, react-hook-form, Yup, react-hot-toast, react-spinners
+
+### 🔗 Посилання
+
+- 🎨 [Макет у Figma](https://www.figma.com/file/dewf5jVviSTuWMMyU3d8Mc/%D0%9F%D0%B5%D1%82-%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82-%D0%B4%D0%BB%D1%8F-%D0%9A%D0%A6?type=design&node-id=0-1&mode=design&t=jCmjSs9PeOjObYSc-0)
+- 📄 [Технічне завдання (Google Docs)](https://docs.google.com/document/d/1ZB_MFgnnJj7t7OXtv5hESSwY6xRgVoACZKzgZczWc3Y/edit?tab=t.0)
