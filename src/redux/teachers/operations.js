@@ -35,33 +35,6 @@ export const getTeachers = createAsyncThunk(
         ...value,
       }));
 
-      // const filtered = teachers.filter((teacher) => {
-      //   const matchesLang = filters.language
-      //     ? Array.isArray(teacher.languages) &&
-      //       teacher.languages.includes(filters.language)
-      //     : true;
-
-      //   const matchesLevel = filters.level
-      //     ? Array.isArray(teacher.levels) &&
-      //       teacher.levels.includes(filters.level)
-      //     : true;
-
-      //   const matchesPrice = filters.price
-      //     ? parseInt(teacher.price_per_hour) === parseInt(filters.price)
-      //     : true;
-
-      //   // const isMatch = ;
-
-      //   console.log("Teacher:", teacher.name);
-      //   console.log("  matchesLang:", matchesLang);
-      //   console.log("  matchesLevel:", matchesLevel);
-      //   console.log("  matchesPrice:", matchesPrice);
-
-      //   return matchesLang && matchesLevel && matchesPrice;
-      // });
-      // // console.log(filtered);
-      // return filtered;
-      // return filtered.slice(0, perPage);
       return teachers;
     } catch (error) {
       console.log(error);
