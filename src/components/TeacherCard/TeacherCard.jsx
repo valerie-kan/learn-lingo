@@ -77,7 +77,7 @@ const TeacherCard = ({ teacher, onFavouriteToggle }) => {
         <p className={css.name}>
           {teacher.name} {teacher.surname}
         </p>
-        {isFavourite ? (
+        {isFavourite && isLoggedIn ? (
           <ReactSVG
             className={css.isFavourite}
             src={favouriteIcon}
