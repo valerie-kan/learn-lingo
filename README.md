@@ -1,6 +1,6 @@
 # LearnLingo
 
-<img src="" width="500">
+<img src="learn-lingo-ochre.vercel.app/screenshot.jpg" width="500">
 
 This is a web app that connects users with language tutors based on the language they want to learn. The platform allows users to browse detailed tutor profiles, which include a short bio, teaching experience, price per lesson, rating, levels to be taught, other users' reviews.
 
@@ -12,6 +12,6 @@ It has 3 pages:
 
 Through other functions: users can book a trial lesson with a tutor they like. The application includes authentication and authorization: only logged-in users can add tutors to their favorites list.
 
-Technologies used:
+# Technologies used:
 
 Vite, Firebase, React, Redux, React Router, react-hook-form, Yup, react-hot-toast, react-spinners
